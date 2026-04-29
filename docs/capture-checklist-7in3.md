@@ -4,16 +4,16 @@ Use KiCad 10.0.1. Capture values only from the saved reference PDFs/pages or fro
 
 ## Capture Order
 
-1. Pi HAT connector and power rails.
-2. HAT+ ID EEPROM on GPIO0/GPIO1 only.
-3. Pimoroni `inky` EEPROM on GPIO2/GPIO3 bus 1 at `0x50`.
-4. Two Qw/ST connectors on GPIO2/GPIO3.
-5. Four rear buttons on GPIO5, GPIO6, GPIO16, GPIO24.
-6. 7.3 inch host interface nets: `CS`, `SDI`, `SCLK`, `D/C`, `RES`, `BUSY`, `3V3`, `GND`.
-7. 50-pin FPC connector and DESPI-C73 panel-side nets.
-8. DESPI-C73 boost/test network.
-9. Schematic notes documenting every intentional deviation from DESPI-C73 and Waveshare wiring.
-10. Footprints, manufacturer/LCSC fields, and BOM review.
+- [x] Pi HAT connector and power rails.
+- [x] HAT+ ID EEPROM on GPIO0/GPIO1 only.
+- [x] Pimoroni `inky` EEPROM on GPIO2/GPIO3 bus 1 at `0x50`.
+- [x] Two Qw/ST connectors on GPIO2/GPIO3.
+- [x] Four rear buttons on GPIO5, GPIO6, GPIO16, GPIO24.
+- [x] 7.3 inch virtual host interface nets: `CS`, `SDI`, `SCLK`, `D/C`, `RES`, `BUSY`, `3V3`, `GND`.
+- [ ] 50-pin FPC connector and DESPI-C73 panel-side nets.
+- [ ] DESPI-C73 boost/test network.
+- [x] Schematic notes documenting current intentional deviations from DESPI-C73 and Waveshare wiring.
+- [ ] Footprints, manufacturer/LCSC fields, and BOM review.
 
 ## Pi-Side Net Names
 
@@ -43,4 +43,3 @@ Use these net names consistently in KiCad:
 - Bus 1 EEPROM address pads should encode `0x50`.
 - All DESPI-C73 test rails should have visible net names and test pads if the reference board exposes them.
 - Any unconnected FPC pins must be marked no-connect only after checking the DESPI-C73 schematic and panel datasheet.
-

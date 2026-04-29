@@ -11,6 +11,7 @@ venv/
 
 # KiCad local/generated files
 *.kicad_prl
+.history/
 *-backups/
 *.bak
 *.kicad_sch-bak
@@ -22,4 +23,3 @@ kicad/**/outputs/*
 # Generated docs/artifacts
 docs/schematic-*.pdf
 reference/SHA256SUMS.tmp
-

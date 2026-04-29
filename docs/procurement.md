@@ -4,12 +4,14 @@ Last checked: 2026-04-29.
 
 ## Panel
 
+Phase 1 no longer depends on a panel order because the user already has a GDEP073E01 panel in hand. The notes below remain for future replacement panels or batch builds.
+
 | Item | Source checked | Result |
 |---|---|---|
 | GDEP073E01 7.3 inch Spectra 6 panel | https://buyepaper.com/products/gdep073e01 | Page lists the product at USD 42.14 and confirms the 50-pin FPC SPI specs, but the selected base `EPD` option shows `0 in stock` in page data. Treat panel availability as unresolved until Good Display confirms by email or checkout. |
 | GDEP073E01 official product page | https://www.good-display.com/product/533.html | Confirms product identity and specs; not enough for shipping/stock confirmation. |
 
-Action: email `buyepaper@good-display.com` or use checkout to confirm current stock and shipping to Singapore before ordering PCBs.
+Action before batch ordering: email `buyepaper@good-display.com` or use checkout to confirm current stock and shipping to Singapore before ordering more panels.
 
 ## Component Selection Rules
 
@@ -28,4 +30,3 @@ Action: email `buyepaper@good-display.com` or use checkout to confirm current st
 | DESPI-C73 diodes | `MBR0530` class | Verify package and ratings against the DESPI-C73 schematic/datasheet before choosing a replacement. |
 | Qw/ST connectors | JST-SH 1.0 mm 4-pin horizontal or vertical | Pick orientation after enclosure/button side is fixed. |
 | Rear buttons | SMD tactile switch | Pick after enclosure clearance is known. |
-

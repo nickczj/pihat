@@ -234,13 +234,13 @@ For comparison: Pimoroni Inky Impression 7.3" is ~$84 fully assembled. Our DIY H
 - [x] Clone/import `devbisme/RPi_Hat_Template` assets and confirm the starter project parses with KiCad CLI
 - [x] Download Phase 1 PDFs/pages into `reference/` and generate `reference/SHA256SUMS`
 - [x] Read `pimoroni/inky/inky/eeprom.py` and document the byte layout in `docs/eeprom-format.md`
-- [ ] Confirm panel availability and shipping window from Good Display to Singapore
+- [x] Confirm Phase 1 panel availability: user has a GDEP073E01 panel in hand. Future reorder stock still needs live confirmation.
 - [x] Decide final KiCad version for collaborators: KiCad 10.0.1.
 
 ### Phase 1 — 7.3" HAT
-- [ ] Capture schematic from DESPI-C73 PDF as KiCad source. Prep notes exist in `docs/schematic-capture-notes.md` and the KiCad starter schematic.
-- [ ] Add HAT EEPROM (24LC256 on GPIO 0/1) per HAT spec
-- [ ] Add 4 buttons + 2 STEMMA QT
+- [ ] Capture schematic from DESPI-C73 PDF as KiCad source. Pi-side/control blocks are captured; the DESPI-C73 50-pin FPC and boost/test network are still pending visual verification.
+- [x] Add HAT EEPROM (24LC256/CAT24C256 class on GPIO 0/1) per HAT spec
+- [x] Add 4 buttons + 2 STEMMA QT/Qw/ST
 - [ ] Lay out PCB at ~174×123mm to fit Ikea 180×130 frame. Placeholder outline exists.
 - [ ] DRC clean against JLCPCB 2-layer constraints (clearance 5/5 mil minimum). Prep-shell DRC passes only because the real layout is not captured yet.
 - [ ] Export gerbers + BOM + placement, order 5 from JLCPCB. Prep-shell gerber/drill export works; BOM and placement remain blocked until schematic/layout capture.

@@ -4,9 +4,9 @@ Last updated: 2026-04-29.
 
 ## Current State
 
-The repository is ready for Phase 1 schematic capture work. It is not ready for fabrication.
+The repository is in Phase 1 schematic capture. It is not ready for fabrication.
 
-The project standard is KiCad 10.0.1. The KiCad files currently validate as a project shell only: the schematic is a capture-prep sheet and the PCB is a 174 x 123 mm outline placeholder. The real circuit still needs to be captured from the DESPI-C73 schematic and reviewed before layout.
+The project standard is KiCad 10.0.1. The Phase 1 schematic now contains real KiCad blocks for the Pi 40-pin header, HAT+ ID EEPROM, Pimoroni-compatible `inky` EEPROM, two Qw/ST connectors, four rear buttons, and a virtual DESPI-C73 host-net handoff block. The PCB is still a 174 x 123 mm outline placeholder. The real 50-pin FPC and DESPI-C73 boost/test network still need to be captured from the official schematic with visual pin-by-pin verification before layout.
 
 ## Completed
 
@@ -33,18 +33,24 @@ The project standard is KiCad 10.0.1. The KiCad files currently validate as a pr
 - [x] Standardized the repo on KiCad `10.0.1` in `.kicad-version`.
 - [x] Upgraded the Phase 1 schematic and PCB files with KiCad 10.0.1 CLI.
 - [x] Added `docs/capture-checklist-7in3.md` for Phase 1 schematic capture order and net naming.
+- [x] Added `docs/despi-c73-reference-map.md` with the official DESPI-C73 host header, FPC pin map, and visible part values.
 - [x] Added `kicad/spectra6-hat-7in3/capture-bom-seed.csv` as a source-backed capture/BOM seed.
 - [x] Added `docs/procurement.md` with the current GDEP073E01 sourcing check.
-- [x] Ran ERC on the current KiCad prep schematic: 0 violations.
+- [x] Confirmed the Phase 1 GDEP073E01 panel is already in hand.
+- [x] Replaced the KiCad capture-prep sheet with real Pi-side/control schematic blocks.
+- [x] Captured the official KiCad Raspberry Pi HAT-style 40-pin header and HAT+ ID EEPROM pattern.
+- [x] Captured the separate bus-1 `inky` EEPROM, Qw/ST connectors, and rear buttons.
+- [x] Added a virtual DESPI-C73 8-pin host-net block for `3V3`, `GND`, `EPD_SDI`, `EPD_SCLK`, `EPD_CS`, `EPD_DC`, `EPD_RESET`, and `EPD_BUSY`.
+- [x] Corrected DESPI-C73 capture values from the official schematic preview: C2 is `4.7uF/25V`, R3/R4 are `0.22ohm`, and the second switcher leg around Q2/D1/L2 is now tracked.
+- [x] Ran ERC on the current KiCad schematic: 0 errors, 18 warnings. Remaining warnings are isolated labels on unused Pi GPIOs and library-symbol mismatch warnings from the imported template symbols.
 - [x] Ran DRC on the current KiCad prep PCB outline: 0 violations, 0 unconnected items.
-- [x] Exported the current schematic PDF, gerbers, and drill files from the prep shell.
+- [x] Exported the current schematic PDF, gerbers, and drill files from the current shell.
 
 ## Not Done
 
-- [ ] Confirm current GDEP073E01 panel availability and shipping window. BuyEpaper page data is ambiguous: metadata says in stock, but the selected base EPD option shows `0 in stock`.
 - [ ] Add the exact Good Display GDEP133C02 datasheet for Phase 2.
 - [ ] Add the exact Spectra 6-specific design notice if it is separate from Good Display's general e-paper usage guidelines.
-- [ ] Capture the real 7.3 inch schematic in KiCad from the DESPI-C73 PDF.
+- [ ] Capture the real DESPI-C73 50-pin FPC and boost/test network in KiCad from the official PDF.
 - [ ] Identify final JLCPCB/LCSC orderable equivalents for every DESPI-C73 part.
 - [ ] Add schematic symbols, footprints, manufacturer part numbers, and BOM fields.
 - [ ] Lay out and route the real 7.3 inch PCB.
@@ -54,13 +60,12 @@ The project standard is KiCad 10.0.1. The KiCad files currently validate as a pr
 
 ## Next Steps
 
-1. Open `kicad/spectra6-hat-7in3/spectra6-hat-7in3.kicad_pro` in KiCad 10.0.1 and replace the capture-prep notes with the real schematic blocks.
-2. Use `docs/capture-checklist-7in3.md` and `kicad/spectra6-hat-7in3/capture-bom-seed.csv` as the capture checklist.
-3. Capture the Pi-side circuit first: 40-pin header, HAT+ ID EEPROM, `inky` EEPROM, Qw/ST connectors, rear buttons, and power pins.
-4. Capture the DESPI-C73 panel-side circuit next, using only values verified from the official schematic/datasheet.
-5. Pick JLCPCB/LCSC parts for the EEPROM, FPC connector, diodes, MOSFET, inductor, ferrites, passives, buttons, and Qw/ST connectors.
-6. Assign footprints and run ERC until the real schematic is clean.
-7. Place the board around the 174 x 123 mm outline, FPC access, Pi clearance, rear button access, and enclosure constraints.
-8. Route as a 2-layer prototype, then run DRC against 5/5 mil minimum rules.
-9. Export schematic PDF, gerbers, drill, BOM, and placement files with `make kicad-export`.
-10. Review fabrication outputs before ordering.
+1. Visually verify `reference/despi-c73-schematic-20220728.pdf` and replace the virtual J5 host-net block with the real 50-pin FPC connector plus DESPI-C73 boost/test network.
+2. Use `docs/capture-checklist-7in3.md` and `kicad/spectra6-hat-7in3/capture-bom-seed.csv` as the remaining capture checklist.
+3. Pick JLCPCB/LCSC parts for the EEPROM, FPC connector, diodes, MOSFET, inductor, ferrites, passives, buttons, and Qw/ST connectors.
+4. Assign final footprints and BOM fields.
+5. Run ERC until the real schematic has no errors and only reviewed/suppressed intentional warnings.
+6. Update the PCB from schematic, then place the board around the 174 x 123 mm outline, FPC access, Pi clearance, rear button access, and enclosure constraints.
+7. Route as a 2-layer prototype, then run DRC against 5/5 mil minimum rules.
+8. Export schematic PDF, gerbers, drill, BOM, and placement files with `make kicad-export`.
+9. Review fabrication outputs before ordering.
