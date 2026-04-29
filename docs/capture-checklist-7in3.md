@@ -10,8 +10,8 @@ Use KiCad 10.0.1. Capture values only from the saved reference PDFs/pages or fro
 - [x] Two Qw/ST connectors on GPIO2/GPIO3.
 - [x] Four rear buttons on GPIO5, GPIO6, GPIO16, GPIO24.
 - [x] 7.3 inch virtual host interface nets: `CS`, `SDI`, `SCLK`, `D/C`, `RES`, `BUSY`, `3V3`, `GND`.
-- [ ] 50-pin FPC connector and DESPI-C73 panel-side nets.
-- [ ] DESPI-C73 boost/test network.
+- [x] 50-pin FPC connector and DESPI-C73 panel-side nets.
+- [x] DESPI-C73 boost/test network.
 - [x] Schematic notes documenting current intentional deviations from DESPI-C73 and Waveshare wiring.
 - [ ] Footprints, manufacturer/LCSC fields, and BOM review.
 
@@ -43,3 +43,4 @@ Use these net names consistently in KiCad:
 - Bus 1 EEPROM address pads should encode `0x50`.
 - All DESPI-C73 test rails should have visible net names and test pads if the reference board exposes them.
 - Any unconnected FPC pins must be marked no-connect only after checking the DESPI-C73 schematic and panel datasheet.
+- First-pass DESPI-C73 capture is allowed to retain reviewed warnings for reserved test pads, but it must have zero ERC errors before footprint/layout work.

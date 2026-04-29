@@ -53,7 +53,7 @@ For a single frame, Pimoroni Inky Impression at ~$84 is cheaper than this DIY ro
 All saved or linked under `reference/`. If a link is dead, search for the title — they're all permanent enough that a fresh URL exists.
 
 ### Schematics (the actual recipe)
-- **Good Display DESPI-C73 schematic PDF** — `good-display.com/companyfile/1108.html`. The reference circuit for the 7.3" panel side. ~15 components: FPC connector, boost circuit (small inductor + a few caps for the panel's V_DD rail), and the SPI breakout. **This is the authoritative source for the 7.3" panel-side schematic.**
+- **Good Display DESPI-C73 schematic PDF** — `good-display.com/companyfile/1108.html`. The reference circuit for the 7.3" panel side: FPC connector, discrete MOSFET/diode/inductor boost/test network, power filtering, straps, and SPI breakout. **This is the authoritative source for the 7.3" panel-side schematic.**
 - **Waveshare 13.3" e-Paper HAT+ (E) schematic** — published as PDF on the Waveshare wiki at `waveshare.com/wiki/13.3inch_e-Paper_HAT+_(E)_Manual`. Reference for the 60-pin QSPI variant.
 - **Good Display GDEP073E01 datasheet** — pin definitions, command set, voltage requirements (3.3V logic, 2.3–3.6V tolerated)
 - **Good Display GDEP133C02 datasheet** — same for 13.3" panel
@@ -99,7 +99,7 @@ The shared block is the Pi HAT side — 40-pin header, EEPROM, mounting holes, o
 | PCB outline | ~174 × 123 mm (matches Pimoroni 7.3" for Ikea 180×130 frames) | ~297 × 210 mm (A4) |
 | Refresh time | ~20–25 s | ~19 s (vendor) — confirm in testing |
 | Layers | 2-layer should suffice | 4-layer recommended due to QSPI clock integrity |
-| Boost circuit | Small (a few caps + inductor) per DESPI-C73 | Confirm against Waveshare 13.3" schematic; may need slightly more capacitance |
+| Boost circuit | Discrete MOSFET/diode/inductor networks per DESPI-C73 | Confirm final orderable equivalents before layout |
 
 **Decision:** Phase 1 builds the 7.3" variant only. 13.3" is Phase 2 once the 7.3" boots and runs Pimoroni `inky` end-to-end. Don't bring up both at once.
 
@@ -180,7 +180,7 @@ Costs are 1-off prototype, sourced JLCPCB basic parts where possible. Update onc
 | Hirose FH12-50S-0.5SH | 1 | ~$2 | LCSC C82474 |
 | 24LC256-I/SN EEPROM | 1 | ~$0.40 | LCSC C12064, address 0x50 |
 | 2×20 pin 2.54mm female header | 1 | ~$0.50 | the Pi-side socket |
-| Boost components per DESPI-C73 | ~10 | ~$1 | small inductor, ceramic caps, switching IC — copy values from PDF |
+| Boost components per DESPI-C73 | TBD | ~$1 | discrete MOSFETs, Schottky diodes, inductors, ferrites, passives, and test pads copied from the official PDF |
 | 4× tactile buttons | 4 | $0.40 | rear-mounted SMD |
 | 2× STEMMA QT JST-SH 4-pin | 2 | $1 | optional |
 | PCB (JLCPCB 2-layer, 5pcs) | 1 | ~$8 | 174×123mm is in the cheap tier |
@@ -238,7 +238,7 @@ For comparison: Pimoroni Inky Impression 7.3" is ~$84 fully assembled. Our DIY H
 - [x] Decide final KiCad version for collaborators: KiCad 10.0.1.
 
 ### Phase 1 — 7.3" HAT
-- [ ] Capture schematic from DESPI-C73 PDF as KiCad source. Pi-side/control blocks are captured; the DESPI-C73 50-pin FPC and boost/test network are still pending visual verification.
+- [x] Capture first-pass schematic from DESPI-C73 PDF as KiCad source. Review is still required before layout: diode polarity, MOSFET pin order, strap behavior, FPC orientation, footprints, and orderable MPNs.
 - [x] Add HAT EEPROM (24LC256/CAT24C256 class on GPIO 0/1) per HAT spec
 - [x] Add 4 buttons + 2 STEMMA QT/Qw/ST
 - [ ] Lay out PCB at ~174×123mm to fit Ikea 180×130 frame. Placeholder outline exists.
@@ -289,7 +289,7 @@ When working on this project:
 
 These need a human decision before proceeding past Phase 1 schematic:
 
-- [ ] **Boost circuit IC choice** — DESPI-C73 uses an unmarked small switcher. Identify the part from the PDF schematic and pick a JLCPCB-stocked equivalent (likely a TPS61040 or similar). Confirm 3.3V → ~5–6V intermediate rail, ~50mA peak.
+- [x] **Boost circuit IC choice** — resolved for Phase 1 schematic capture: DESPI-C73 does not use a separate boost-controller IC. The visible active parts are discrete MOSFETs `Q1`/`Q2` plus Schottky diodes, inductors, ferrites, and passives. Final orderable equivalents still need review.
 - [ ] **EEPROM I²C address conflict?** — HAT spec puts EEPROM on dedicated GPIO 0/1 lines, separate from the user I²C bus on GPIO 2/3. Confirm Pimoroni's `inky` library reads from the dedicated HAT EEPROM bus (`/sys/firmware/devicetree/base/hat/`) rather than user-bus I²C 0x50. **This affects whether STEMMA QT works alongside `inky` auto-detect.**
 - [ ] **Buttons: side or rear?** — Pimoroni shifted from side to rear in Nov 2025 due to transit damage. Rear is mechanically better but requires deeper enclosure clearance.
 - [ ] **Single PCB or two-board (carrier + adapter)?** — Two-board lets the same Pi-side carrier serve both panel sizes, with cheap swappable FPC adapters. One-board is simpler but means two distinct designs. Lean toward two-board for the second panel to halve future design work.

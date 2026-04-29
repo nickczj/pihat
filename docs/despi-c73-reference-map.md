@@ -99,6 +99,8 @@ This is the working map for replacing the temporary virtual `J5` host-net block 
 ## Capture Notes
 
 - `P2` is not a physical connector on this HAT. Its eight nets are already represented by virtual `J5`; final capture should wire those nets directly into `P1` and the boost/test network.
+- The KiCad schematic uses 100-series references for the DESPI-derived panel-side block to avoid collisions with the HAT+ template references. For example, `Q101` maps to DESPI `Q1`, `C115` maps to DESPI `C15`, and `R109` maps to DESPI `R9`.
 - `SI1`, `SI2`, and `SI3` are present on the panel FPC but are not used by the Pimoroni-compatible 7.3 inch SPI pinout. Confirm whether they should be tied per DESPI-C73, left no-connect, or exposed as test pads before layout.
 - `BS0` and `BS1` are strap pins in the DESPI-C73 schematic. Preserve the DESPI-C73 resistor options rather than hard-coding the bus mode until the panel datasheet has been checked against the reference schematic.
 - The schematic exposes reserved boost/test nets `PREVGH`, `PREVGH1`, `PREVGL`, `PREVGL1`, `VCOM`, `VCOM1`, `GND`, and `GND1`. Add test pads only if they do not create panel insertion or enclosure clearance issues.
+- There is no separate TPS65185-style PMIC or unidentified boost-controller IC in the DESPI-C73 schematic. The visible active boost/switching parts are discrete MOSFETs `Q1`/`Q2`, Schottky diodes, inductors, passives, and control nets from the panel FPC.

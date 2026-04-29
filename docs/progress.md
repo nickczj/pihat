@@ -6,7 +6,7 @@ Last updated: 2026-04-29.
 
 The repository is in Phase 1 schematic capture. It is not ready for fabrication.
 
-The project standard is KiCad 10.0.1. The Phase 1 schematic now contains real KiCad blocks for the Pi 40-pin header, HAT+ ID EEPROM, Pimoroni-compatible `inky` EEPROM, two Qw/ST connectors, four rear buttons, and a virtual DESPI-C73 host-net handoff block. The PCB is still a 174 x 123 mm outline placeholder. The real 50-pin FPC and DESPI-C73 boost/test network still need to be captured from the official schematic with visual pin-by-pin verification before layout.
+The project standard is KiCad 10.0.1. The Phase 1 schematic now contains real KiCad blocks for the Pi 40-pin header, HAT+ ID EEPROM, Pimoroni-compatible `inky` EEPROM, two Qw/ST connectors, four rear buttons, and a first-pass DESPI-C73-derived panel-side block with the 50-pin FPC, boost/test network, straps, and test pads. The PCB is still a 174 x 123 mm outline placeholder. The schematic is not ready for layout until diode/MOSFET polarity, FPC contact orientation, footprints, and orderable part selections are reviewed.
 
 ## Completed
 
@@ -42,7 +42,8 @@ The project standard is KiCad 10.0.1. The Phase 1 schematic now contains real Ki
 - [x] Captured the separate bus-1 `inky` EEPROM, Qw/ST connectors, and rear buttons.
 - [x] Added a virtual DESPI-C73 8-pin host-net block for `3V3`, `GND`, `EPD_SDI`, `EPD_SCLK`, `EPD_CS`, `EPD_DC`, `EPD_RESET`, and `EPD_BUSY`.
 - [x] Corrected DESPI-C73 capture values from the official schematic preview: C2 is `4.7uF/25V`, R3/R4 are `0.22ohm`, and the second switcher leg around Q2/D1/L2 is now tracked.
-- [x] Ran ERC on the current KiCad schematic: 0 errors, 18 warnings. Remaining warnings are isolated labels on unused Pi GPIOs and library-symbol mismatch warnings from the imported template symbols.
+- [x] Captured the first-pass DESPI-C73 50-pin FPC, boost/test network, decoupling, straps, and reserved test pads in KiCad.
+- [x] Ran ERC on the current KiCad schematic: 0 errors, 22 warnings. Remaining warnings are isolated labels on unused Pi GPIOs/reserved DESPI test pads and library-symbol mismatch warnings from the imported template symbols.
 - [x] Ran DRC on the current KiCad prep PCB outline: 0 violations, 0 unconnected items.
 - [x] Exported the current schematic PDF, gerbers, and drill files from the current shell.
 
@@ -50,7 +51,7 @@ The project standard is KiCad 10.0.1. The Phase 1 schematic now contains real Ki
 
 - [ ] Add the exact Good Display GDEP133C02 datasheet for Phase 2.
 - [ ] Add the exact Spectra 6-specific design notice if it is separate from Good Display's general e-paper usage guidelines.
-- [ ] Capture the real DESPI-C73 50-pin FPC and boost/test network in KiCad from the official PDF.
+- [ ] Review the first-pass DESPI-C73 capture against the official PDF for diode polarity, MOSFET pin order, strap semantics, and FPC orientation.
 - [ ] Identify final JLCPCB/LCSC orderable equivalents for every DESPI-C73 part.
 - [ ] Add schematic symbols, footprints, manufacturer part numbers, and BOM fields.
 - [ ] Lay out and route the real 7.3 inch PCB.
@@ -60,12 +61,11 @@ The project standard is KiCad 10.0.1. The Phase 1 schematic now contains real Ki
 
 ## Next Steps
 
-1. Visually verify `reference/despi-c73-schematic-20220728.pdf` and replace the virtual J5 host-net block with the real 50-pin FPC connector plus DESPI-C73 boost/test network.
-2. Use `docs/capture-checklist-7in3.md` and `kicad/spectra6-hat-7in3/capture-bom-seed.csv` as the remaining capture checklist.
-3. Pick JLCPCB/LCSC parts for the EEPROM, FPC connector, diodes, MOSFET, inductor, ferrites, passives, buttons, and Qw/ST connectors.
-4. Assign final footprints and BOM fields.
-5. Run ERC until the real schematic has no errors and only reviewed/suppressed intentional warnings.
-6. Update the PCB from schematic, then place the board around the 174 x 123 mm outline, FPC access, Pi clearance, rear button access, and enclosure constraints.
-7. Route as a 2-layer prototype, then run DRC against 5/5 mil minimum rules.
-8. Export schematic PDF, gerbers, drill, BOM, and placement files with `make kicad-export`.
-9. Review fabrication outputs before ordering.
+1. Review the first-pass DESPI-C73 KiCad capture against `reference/despi-c73-schematic-20220728.pdf`, especially diode polarity, MOSFET G/S/D order, `R6`/`R7` strap behavior, and pin-1/contact orientation for the FPC footprint.
+2. Pick JLCPCB/LCSC parts for the EEPROM, FPC connector, diodes, MOSFETs, inductors, ferrites, passives, buttons, and Qw/ST connectors.
+3. Assign final footprints and BOM fields.
+4. Run ERC until the real schematic has no errors and only reviewed/suppressed intentional warnings.
+5. Update the PCB from schematic, then place the board around the 174 x 123 mm outline, FPC access, Pi clearance, rear button access, and enclosure constraints.
+6. Route as a 2-layer prototype, then run DRC against 5/5 mil minimum rules.
+7. Export schematic PDF, gerbers, drill, BOM, and placement files with `make kicad-export`.
+8. Review fabrication outputs before ordering.

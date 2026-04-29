@@ -4,57 +4,57 @@ U1,1,HAT+ ID EEPROM,CAT24C256 or 24LC256,Memory_EEPROM:CAT24C256,Package_SO:SOIC
 U2,1,Inky EEPROM,CAT24C256 or 24LC256,Memory_EEPROM:CAT24C256,Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,Pimoroni inky eeprom.py,captured_needs_part_review,Bus 1 at 0x50; stores 29-byte EPDType structure.
 JP1,1,HAT+ ID EEPROM WP,Solder jumper open,Jumper:SolderJumper_2_Open,Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm,Raspberry Pi HAT+ template,captured_needs_symbol_review,HAT+ ID EEPROM write-protect.
 JP2,1,Inky EEPROM WP,Solder jumper open,Jumper:SolderJumper_2_Open,Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm,Project decision,captured_needs_symbol_review,Allows protecting bus-1 display EEPROM writes.
-J2,1,Panel FPC,50-pin 0.5mm FPC,Connector_Generic:Conn_01x50,Connector_FFC-FPC:Hirose_FH12-50S-0.5SH_1x50-1MP_P0.50mm_Horizontal,DESPI-C73 / GDEP073E01 docs,needs_orientation_review,Verify top/bottom contact orientation against panel cable before layout.
+J2,1,Panel FPC,50-pin 0.5mm FPC,Connector_Generic:Conn_01x50,Connector_FFC-FPC:Hirose_FH12-50S-0.5SH_1x50-1MP_P0.50mm_Horizontal,DESPI-C73 / GDEP073E01 docs,captured_needs_orientation_review,Captured as KiCad J2; verify top/bottom contact orientation against the panel cable before layout.
 J3,1,Qw/ST connector A,JST-SH 1x04,Connector_Generic:Conn_01x04,Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal,Project decision,captured_needs_part_review,Pin order captured as GND/3V3/SDA/SCL; verify footprint orientation before layout.
 J4,1,Qw/ST connector B,JST-SH 1x04,Connector_Generic:Conn_01x04,Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal,Project decision,captured_needs_part_review,Same bus as inky EEPROM; address 0x50 unavailable.
-J5,1,Virtual host-net block,DESPI-C73 8-pin host nets,Connector_Generic:Conn_01x08,Virtual/not physical,DESPI-C73 schematic,captured_virtual_replace_before_layout,Virtual handoff only; replace with J2 50-pin FPC and boost/test network.
+J5,1,Virtual host-net block,DESPI-C73 8-pin host nets,Connector_Generic:Conn_01x08,Virtual/not physical,DESPI-C73 schematic,captured_virtual_cross_check,No-BOM/no-board virtual source cross-check only; J2/100-series DESPI parts are the physical capture.
 SW1,1,Button A,Tactile switch,Switch:SW_Push,TBD,Project pinout,captured_needs_mechanical_review,Rear-mounted; GPIO5.
 SW2,1,Button B,Tactile switch,Switch:SW_Push,TBD,Project pinout,captured_needs_mechanical_review,Rear-mounted; GPIO6.
 SW3,1,Button C,Tactile switch,Switch:SW_Push,TBD,Project pinout,captured_needs_mechanical_review,Rear-mounted; GPIO16; conflicts with future 13.3 CS1.
 SW4,1,Button D,Tactile switch,Switch:SW_Push,TBD,Project pinout,captured_needs_mechanical_review,Rear-mounted; GPIO24.
-Q1,1,DESPI-C73 boost/test network,Si1308EDL,Device:Q_NMOS_GSD,TBD,DESPI-C73 schematic,needs_part_review,Do not substitute until electrical ratings and package are checked.
-Q2,1,DESPI-C73 boost/test network,Si2301,Device:Q_PMOS_GSD,TBD,DESPI-C73 schematic,needs_part_review,Do not substitute until electrical ratings and package are checked.
-D1,1,DESPI-C73 boost/test network,MBR0530,Device:D_Schottky,TBD,DESPI-C73 schematic,needs_part_review,Package and rating must match reference.
-D2,1,DESPI-C73 boost/test network,MBR0530,Device:D_Schottky,TBD,DESPI-C73 schematic,needs_part_review,Package and rating must match reference.
-D3,1,DESPI-C73 boost/test network,MBR0530,Device:D_Schottky,TBD,DESPI-C73 schematic,needs_part_review,Package and rating must match reference.
-D4,1,DESPI-C73 boost/test network,MBR0530,Device:D_Schottky,TBD,DESPI-C73 schematic,needs_part_review,Package and rating must match reference.
-L1,1,DESPI-C73 boost/test network,10uH 1A,Device:L,TBD,DESPI-C73 schematic,needs_part_review,Use exact reference value; choose JLCPCB part later.
-L2,1,DESPI-C73 boost/test network,10uH 1A,Device:L,TBD,DESPI-C73 schematic,needs_part_review,Use exact reference value; choose JLCPCB part later.
-L3,1,DESPI-C73 power input,L0603 120ohm @ 100MHz,Device:Ferrite_Bead,Inductor_SMD:L_0603_1608Metric,DESPI-C73 schematic,needs_part_review,Ferrite bead.
-L4,1,DESPI-C73 power input,L0603 120ohm @ 100MHz,Device:Ferrite_Bead,Inductor_SMD:L_0603_1608Metric,DESPI-C73 schematic,needs_part_review,Ferrite bead.
-C1,1,DESPI-C73 boost/test network,4.7uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C2,1,DESPI-C73 boost/test network,4.7uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C3,1,DESPI-C73 boost/test network,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C4,1,DESPI-C73 boost/test network,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C5,1,DESPI-C73 boost/test network,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C6,1,DESPI-C73 boost/test network,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C7,1,DESPI-C73 FPC decoupling,0.47uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C8,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C9,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C10,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C11,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C12,1,DESPI-C73 FPC decoupling,2.2uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C13,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C14,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C15,1,DESPI-C73 FPC decoupling,4.7uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C16,1,DESPI-C73 FPC decoupling,0.47uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C17,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C18,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C19,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C20,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C21,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C22,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C23,1,DESPI-C73 power input,100uF/6.3V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-C24,1,DESPI-C73 power input,0.1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package/cap type to verify from reference.
-R1,1,DESPI-C73 boost/test network,1M,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package to verify.
-R2,1,DESPI-C73 boost/test network,1M,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package to verify.
-R3,1,DESPI-C73 boost/test network,0.22ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package and power rating to verify.
-R4,1,DESPI-C73 boost/test network,0.22ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package and power rating to verify.
-R5,1,DESPI-C73 boost/test network,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package to verify.
-R6,1,DESPI-C73 bus strap,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package to verify.
-R7,1,DESPI-C73 bus strap,NC,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Do not populate unless bus-mode review changes.
-R8,1,DESPI-C73 FPC supply,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package to verify.
-R9,1,DESPI-C73 FPC VCOM,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package to verify.
-R10,1,DESPI-C73 power input,1ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package and power rating to verify.
-R11,1,DESPI-C73 power input,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package to verify.
-R12,1,DESPI-C73 power input,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_part_review,Package to verify.
+Q1,1,DESPI-C73 boost/test network,Si1308EDL,Transistor_FET:Q_NMOS_GSD,TBD,DESPI-C73 schematic,captured_needs_part_review,Do not substitute until electrical ratings and package are checked. KiCad 100-series ref maps to DESPI source ref.
+Q2,1,DESPI-C73 boost/test network,Si2301,Transistor_FET:Q_PMOS_GSD,TBD,DESPI-C73 schematic,captured_needs_part_review,Do not substitute until electrical ratings and package are checked. KiCad 100-series ref maps to DESPI source ref.
+D1,1,DESPI-C73 boost/test network,MBR0530,Device:D_Schottky,TBD,DESPI-C73 schematic,captured_needs_part_review,Package and rating must match reference. KiCad 100-series ref maps to DESPI source ref.
+D2,1,DESPI-C73 boost/test network,MBR0530,Device:D_Schottky,TBD,DESPI-C73 schematic,captured_needs_part_review,Package and rating must match reference. KiCad 100-series ref maps to DESPI source ref.
+D3,1,DESPI-C73 boost/test network,MBR0530,Device:D_Schottky,TBD,DESPI-C73 schematic,captured_needs_part_review,Package and rating must match reference. KiCad 100-series ref maps to DESPI source ref.
+D4,1,DESPI-C73 boost/test network,MBR0530,Device:D_Schottky,TBD,DESPI-C73 schematic,captured_needs_part_review,Package and rating must match reference. KiCad 100-series ref maps to DESPI source ref.
+L1,1,DESPI-C73 boost/test network,10uH 1A,Device:L,TBD,DESPI-C73 schematic,captured_needs_part_review,Use exact reference value; choose JLCPCB part later. KiCad 100-series ref maps to DESPI source ref.
+L2,1,DESPI-C73 boost/test network,10uH 1A,Device:L,TBD,DESPI-C73 schematic,captured_needs_part_review,Use exact reference value; choose JLCPCB part later. KiCad 100-series ref maps to DESPI source ref.
+L3,1,DESPI-C73 power input,L0603 120ohm @ 100MHz,Device:FerriteBead,Inductor_SMD:L_0603_1608Metric,DESPI-C73 schematic,captured_needs_part_review,Ferrite bead. KiCad 100-series ref maps to DESPI source ref.
+L4,1,DESPI-C73 power input,L0603 120ohm @ 100MHz,Device:FerriteBead,Inductor_SMD:L_0603_1608Metric,DESPI-C73 schematic,captured_needs_part_review,Ferrite bead. KiCad 100-series ref maps to DESPI source ref.
+C1,1,DESPI-C73 boost/test network,4.7uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C2,1,DESPI-C73 boost/test network,4.7uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C3,1,DESPI-C73 boost/test network,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C4,1,DESPI-C73 boost/test network,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C5,1,DESPI-C73 boost/test network,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C6,1,DESPI-C73 boost/test network,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C7,1,DESPI-C73 FPC decoupling,0.47uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C8,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C9,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C10,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C11,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C12,1,DESPI-C73 FPC decoupling,2.2uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C13,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C14,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C15,1,DESPI-C73 FPC decoupling,4.7uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C16,1,DESPI-C73 FPC decoupling,0.47uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C17,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C18,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C19,1,DESPI-C73 FPC decoupling,10uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C20,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C21,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C22,1,DESPI-C73 FPC decoupling,1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C23,1,DESPI-C73 power input,100uF/6.3V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+C24,1,DESPI-C73 power input,0.1uF/25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package/cap type to verify from reference. KiCad 100-series ref maps to DESPI source ref.
+R1,1,DESPI-C73 boost/test network,1M,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package to verify. KiCad 100-series ref maps to DESPI source ref.
+R2,1,DESPI-C73 boost/test network,1M,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package to verify. KiCad 100-series ref maps to DESPI source ref.
+R3,1,DESPI-C73 boost/test network,0.22ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package and power rating to verify. KiCad 100-series ref maps to DESPI source ref.
+R4,1,DESPI-C73 boost/test network,0.22ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package and power rating to verify. KiCad 100-series ref maps to DESPI source ref.
+R5,1,DESPI-C73 boost/test network,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package to verify. KiCad 100-series ref maps to DESPI source ref.
+R6,1,DESPI-C73 bus strap,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package to verify. KiCad 100-series ref maps to DESPI source ref.
+R7,1,DESPI-C73 bus strap,NC,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Do not populate unless bus-mode review changes. KiCad 100-series ref maps to DESPI source ref.
+R8,1,DESPI-C73 FPC supply,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package to verify. KiCad 100-series ref maps to DESPI source ref.
+R9,1,DESPI-C73 FPC VCOM,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package to verify. KiCad 100-series ref maps to DESPI source ref.
+R10,1,DESPI-C73 power input,1ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package and power rating to verify. KiCad 100-series ref maps to DESPI source ref.
+R11,1,DESPI-C73 power input,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package to verify. KiCad 100-series ref maps to DESPI source ref.
+R12,1,DESPI-C73 power input,0ohm,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,captured_needs_part_review,Package to verify. KiCad 100-series ref maps to DESPI source ref.

@@ -68,11 +68,11 @@ Completed in `kicad/spectra6-hat-7in3/spectra6-hat-7in3.kicad_sch`:
 - Separate Pimoroni-compatible `inky` EEPROM block on `I2C1_SDA`/`I2C1_SCL` at address `0x50`.
 - Two Qw/ST connectors sharing bus 1, with `0x50` reserved for the `inky` EEPROM.
 - Four rear button symbols on `BTN_A`, `BTN_B`, `BTN_C`, and `BTN_D`.
-- A virtual DESPI-C73 host-net handoff block, `J5`, for the eight SPI/control/power nets.
+- A first-pass DESPI-C73-derived panel-side block using 100-series references: `J2`, `Q101`/`Q102`, `D101`-`D104`, `L101`-`L104`, `C101`-`C124`, `R101`-`R112`, and `TP101`-`TP108`.
+- A no-BOM/no-board virtual DESPI-C73 host-net handoff block, `J5`, retained only as a source cross-check until schematic review.
 
 Still pending:
 
-- Replace virtual `J5` with the real 50-pin FPC connector from the DESPI-C73 schematic.
-- Capture the DESPI-C73 boost/test network and all verified values.
+- Review the first-pass DESPI-C73 block against the official PDF for diode polarity, MOSFET G/S/D order, `R6`/`R7` strap behavior, and FPC pin-1/contact orientation.
 - Assign final footprints, manufacturer part numbers, LCSC/JLCPCB fields, and reviewed BOM data.
-- Review remaining ERC warnings. Current ERC has zero errors; warnings are isolated labels on unused Pi GPIOs and imported-template symbol mismatch warnings.
+- Review remaining ERC warnings. Current ERC has zero errors; warnings are isolated labels on unused Pi GPIOs/reserved DESPI test pads and imported-template symbol mismatch warnings.
