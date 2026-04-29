@@ -1,6 +1,6 @@
 KICAD_CLI ?= /Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
 
-.PHONY: test eeprom-dry-run refs-check kicad-version kicad-erc kicad-drc kicad-export
+.PHONY: test eeprom-dry-run refs-check kicad-version kicad-upgrade kicad-erc kicad-drc kicad-check kicad-export
 
 test:
 	python3 -m unittest discover -s firmware/eeprom-flash
@@ -14,6 +14,10 @@ refs-check:
 kicad-version:
 	$(KICAD_CLI) version
 
+kicad-upgrade:
+	$(KICAD_CLI) sch upgrade --force kicad/spectra6-hat-7in3/spectra6-hat-7in3.kicad_sch
+	$(KICAD_CLI) pcb upgrade --force kicad/spectra6-hat-7in3/spectra6-hat-7in3.kicad_pcb
+
 kicad-erc:
 	$(KICAD_CLI) sch erc kicad/spectra6-hat-7in3/spectra6-hat-7in3.kicad_sch \
 		--output kicad/spectra6-hat-7in3/outputs/erc.rpt
@@ -21,6 +25,8 @@ kicad-erc:
 kicad-drc:
 	$(KICAD_CLI) pcb drc kicad/spectra6-hat-7in3/spectra6-hat-7in3.kicad_pcb \
 		--output kicad/spectra6-hat-7in3/outputs/drc.rpt
+
+kicad-check: kicad-version kicad-erc kicad-drc
 
 kicad-export:
 	mkdir -p kicad/spectra6-hat-7in3/outputs/gerbers

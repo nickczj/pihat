@@ -1,13 +1,13 @@
 (kicad_sch
-	(version 20231120)
-	(generator "codex")
-	(generator_version "0.1")
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
 	(uuid "00000000-0000-4000-8000-000000073001")
 	(paper "A3")
 	(title_block
 		(title "Spectra 6 HAT 7.3 - Schematic Capture Prep")
-		(date "2026-04-28")
-		(rev "prep-0")
+		(date "2026-04-29")
+		(rev "prep-1")
 		(company "Open hardware")
 		(comment 1 "NOT FABRICATION READY: complete capture, ERC, layout, and DRC before ordering.")
 		(comment 2 "Phase 1 follows Pimoroni inky pins and DESPI-C73 panel-side reference.")
@@ -62,5 +62,5 @@
 			(page "1")
 		)
 	)
+	(embedded_fonts no)
 )
-

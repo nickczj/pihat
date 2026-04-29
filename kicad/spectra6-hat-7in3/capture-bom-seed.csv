@@ -1,0 +1,29 @@
+Ref,Qty,Block,Value,KiCad symbol candidate,KiCad footprint candidate,Source,Status,Notes
+J1,1,Pi HAT,2x20 Raspberry Pi GPIO socket,Connector_Generic:Conn_02x20_Odd_Even,Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical,Raspberry Pi HAT+ spec / RPi_Hat_Template,ready_for_capture,Use HAT mechanical keepouts and mounting geometry.
+U1,1,HAT+ ID EEPROM,CAT24C256 or 24LC256,Memory_EEPROM:CAT24C256,Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,Raspberry Pi HAT+ spec / KiCad RaspberryPi-HAT template,needs_part_review,GPIO0/GPIO1 only; no other devices on ID bus.
+U2,1,Inky EEPROM,24LC256 or CAT24C256,Memory_EEPROM:24LC256,Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,Pimoroni inky eeprom.py,needs_part_review,Bus 1 at 0x50; stores 29-byte EPDType structure.
+JP1,1,HAT+ ID EEPROM WP,Solder jumper open,Jumper:SolderJumper_2_Open,Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm,Raspberry Pi HAT+ template,ready_for_capture,HAT+ ID EEPROM write-protect.
+JP2,1,Inky EEPROM WP,Solder jumper open,Jumper:SolderJumper_2_Open,Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm,Project decision,ready_for_capture,Allows disabling/protecting bus-1 display EEPROM writes.
+J2,1,Panel FPC,50-pin 0.5mm FPC,Connector_Generic:Conn_01x50,Connector_FFC-FPC:Hirose_FH12-50S-0.5SH_1x50-1MP_P0.50mm_Horizontal,DESPI-C73 / GDEP073E01 docs,needs_orientation_review,Verify top/bottom contact orientation against panel cable before layout.
+J3,1,Qw/ST connector A,JST-SH 1x04,Connector_Generic:Conn_01x04,Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal,Project decision,needs_part_review,Pin order should match STEMMA QT/Qwiic convention.
+J4,1,Qw/ST connector B,JST-SH 1x04,Connector_Generic:Conn_01x04,Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal,Project decision,needs_part_review,Same bus as inky EEPROM; address 0x50 unavailable.
+SW1,1,Button A,Tactile switch,Switch:SW_Push,TBD,Project pinout,needs_mechanical_review,Rear-mounted; GPIO5.
+SW2,1,Button B,Tactile switch,Switch:SW_Push,TBD,Project pinout,needs_mechanical_review,Rear-mounted; GPIO6.
+SW3,1,Button C,Tactile switch,Switch:SW_Push,TBD,Project pinout,needs_mechanical_review,Rear-mounted; GPIO16; conflicts with future 13.3 CS1.
+SW4,1,Button D,Tactile switch,Switch:SW_Push,TBD,Project pinout,needs_mechanical_review,Rear-mounted; GPIO24.
+Q1,1,DESPI-C73 boost/test network,Si1308EDL-class NMOS,Device:Q_NMOS_GSD,TBD,DESPI-C73 schematic,needs_visual_verify,Do not substitute until electrical ratings are checked.
+D2,1,DESPI-C73 boost/test network,MBR0530-class Schottky,Device:D_Schottky,TBD,DESPI-C73 schematic,needs_visual_verify,Package and rating must match reference.
+D3,1,DESPI-C73 boost/test network,MBR0530-class Schottky,Device:D_Schottky,TBD,DESPI-C73 schematic,needs_visual_verify,Package and rating must match reference.
+D4,1,DESPI-C73 boost/test network,MBR0530-class Schottky,Device:D_Schottky,TBD,DESPI-C73 schematic,needs_visual_verify,Package and rating must match reference.
+L1,1,DESPI-C73 boost/test network,10uH 1A,Device:L,TBD,DESPI-C73 schematic,needs_visual_verify,Use exact reference value; choose JLCPCB part later.
+C2,1,DESPI-C73 boost/test network,47uF 25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_visual_verify,Package/cap type to verify from reference.
+C3,1,DESPI-C73 boost/test network,10uF 25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_visual_verify,Package/cap type to verify from reference.
+C5,1,DESPI-C73 boost/test network,10uF 25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_visual_verify,Package/cap type to verify from reference.
+C6,1,DESPI-C73 boost/test network,10uF 25V,Device:C,Capacitor_SMD:TBD,DESPI-C73 schematic,needs_visual_verify,Package/cap type to verify from reference.
+R2,1,DESPI-C73 boost/test network,1M,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_visual_verify,Package to verify.
+R4,1,DESPI-C73 boost/test network,0R,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_visual_verify,Package to verify.
+R5,1,DESPI-C73 boost/test network,0R,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_visual_verify,Package to verify.
+R10,1,DESPI-C73 boost/test network,1R,Device:R,Resistor_SMD:TBD,DESPI-C73 schematic,needs_visual_verify,Package to verify.
+L3,1,DESPI-C73 boost/test network,L0603 120R 100MHz,Device:Ferrite_Bead,Inductor_SMD:L_0603_1608Metric,DESPI-C73 schematic,needs_visual_verify,Ferrite bead; confirm impedance notation.
+L4,1,DESPI-C73 boost/test network,L0603 120R 100MHz,Device:Ferrite_Bead,Inductor_SMD:L_0603_1608Metric,DESPI-C73 schematic,needs_visual_verify,Ferrite bead; confirm impedance notation.
+

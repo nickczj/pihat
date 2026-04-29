@@ -42,3 +42,9 @@ Initial schematic text extraction from the DESPI-C73 PDF shows these values and 
 
 Every schematic deviation should also be placed as a KiCad schematic note before layout.
 
+## Capture Assets
+
+- `docs/capture-checklist-7in3.md` defines the net naming and capture order.
+- `kicad/spectra6-hat-7in3/capture-bom-seed.csv` lists the first schematic refs, candidate KiCad symbols/footprints, and source/status for each part.
+
+Use the CSV as a checklist while capturing the real schematic. Do not treat `TBD` footprints or `needs_visual_verify` rows as orderable BOM entries.

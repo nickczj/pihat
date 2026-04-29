@@ -4,7 +4,7 @@ Phase 1 targets a low-cost 2-layer prototype process first. Do not order boards 
 
 ## Local Prerequisites
 
-- KiCad. The current local CLI is KiCad `10.0.1`.
+- KiCad `10.0.1`; this is recorded in `.kicad-version`.
 - `kicad-cli`; on this Mac it is at `/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli`.
 - Manufacturer rules configured for the intended order. Initial JLCPCB target is 5/5 mil minimum track/clearance.
 
@@ -19,6 +19,7 @@ make kicad-erc KICAD_CLI=/path/to/kicad-cli
 
 ```bash
 make kicad-version
+make kicad-upgrade
 make kicad-erc
 make kicad-drc
 ```
@@ -53,6 +54,7 @@ Run date: 2026-04-29.
 | Check | Result |
 |---|---|
 | `kicad-cli version` | `10.0.1` |
+| KiCad source upgrade | Completed with KiCad 10.0.1 |
 | Schematic ERC on prep sheet | 0 violations |
 | PCB DRC on outline placeholder | 0 violations, 0 unconnected items |
 | Schematic PDF export | Completed |

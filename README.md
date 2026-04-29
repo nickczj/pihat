@@ -22,6 +22,8 @@ This repository is implementation prep, not fabrication release. The KiCad proje
 
 Current progress is tracked in [docs/progress.md](docs/progress.md).
 
+The project standard is KiCad `10.0.1`; the expected local CLI path on this Mac is `/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli`.
+
 ## Software Target
 
 Python tooling targets Python 3.11+ and `inky==2.4.0`, cross-checked against Pimoroni `inky` commit `07035b30d2a1`.
@@ -39,6 +41,8 @@ docs/                      Design decisions, pinout, bring-up, manufacturing not
 reference/                 Downloaded references, source index, checksums
 enclosure/                 Phase 4 OpenSCAD placeholder
 ```
+
+The immediate schematic-capture checklist is [docs/capture-checklist-7in3.md](docs/capture-checklist-7in3.md), backed by [kicad/spectra6-hat-7in3/capture-bom-seed.csv](kicad/spectra6-hat-7in3/capture-bom-seed.csv).
 
 ## Quick Checks
 

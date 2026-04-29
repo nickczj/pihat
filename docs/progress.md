@@ -6,7 +6,7 @@ Last updated: 2026-04-29.
 
 The repository is ready for Phase 1 schematic capture work. It is not ready for fabrication.
 
-The KiCad files currently validate as a project shell only: the schematic is a capture-prep sheet and the PCB is a 174 x 123 mm outline placeholder. The real circuit still needs to be captured from the DESPI-C73 schematic and reviewed before layout.
+The project standard is KiCad 10.0.1. The KiCad files currently validate as a project shell only: the schematic is a capture-prep sheet and the PCB is a 174 x 123 mm outline placeholder. The real circuit still needs to be captured from the DESPI-C73 schematic and reviewed before layout.
 
 ## Completed
 
@@ -30,14 +30,18 @@ The KiCad files currently validate as a project shell only: the schematic is a c
 - [x] Added an OpenSCAD enclosure envelope placeholder.
 - [x] Found and used local KiCad CLI at `/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli`.
 - [x] Verified local KiCad CLI version `10.0.1`.
+- [x] Standardized the repo on KiCad `10.0.1` in `.kicad-version`.
+- [x] Upgraded the Phase 1 schematic and PCB files with KiCad 10.0.1 CLI.
+- [x] Added `docs/capture-checklist-7in3.md` for Phase 1 schematic capture order and net naming.
+- [x] Added `kicad/spectra6-hat-7in3/capture-bom-seed.csv` as a source-backed capture/BOM seed.
+- [x] Added `docs/procurement.md` with the current GDEP073E01 sourcing check.
 - [x] Ran ERC on the current KiCad prep schematic: 0 violations.
 - [x] Ran DRC on the current KiCad prep PCB outline: 0 violations, 0 unconnected items.
 - [x] Exported the current schematic PDF, gerbers, and drill files from the prep shell.
 
 ## Not Done
 
-- [ ] Confirm the final KiCad major version for collaborators. Current local CLI is KiCad 10.0.1; original plan assumed KiCad 8 or 9.
-- [ ] Confirm current GDEP073E01 panel availability and shipping window.
+- [ ] Confirm current GDEP073E01 panel availability and shipping window. BuyEpaper page data is ambiguous: metadata says in stock, but the selected base EPD option shows `0 in stock`.
 - [ ] Add the exact Good Display GDEP133C02 datasheet for Phase 2.
 - [ ] Add the exact Spectra 6-specific design notice if it is separate from Good Display's general e-paper usage guidelines.
 - [ ] Capture the real 7.3 inch schematic in KiCad from the DESPI-C73 PDF.
@@ -50,8 +54,8 @@ The KiCad files currently validate as a project shell only: the schematic is a c
 
 ## Next Steps
 
-1. Decide whether the repo should standardize on KiCad 10.0.1, since that is the installed CLI, or install KiCad 8/9 to match the original plan.
-2. Open `kicad/spectra6-hat-7in3/spectra6-hat-7in3.kicad_pro` in KiCad and replace the capture-prep notes with the real schematic blocks.
+1. Open `kicad/spectra6-hat-7in3/spectra6-hat-7in3.kicad_pro` in KiCad 10.0.1 and replace the capture-prep notes with the real schematic blocks.
+2. Use `docs/capture-checklist-7in3.md` and `kicad/spectra6-hat-7in3/capture-bom-seed.csv` as the capture checklist.
 3. Capture the Pi-side circuit first: 40-pin header, HAT+ ID EEPROM, `inky` EEPROM, Qw/ST connectors, rear buttons, and power pins.
 4. Capture the DESPI-C73 panel-side circuit next, using only values verified from the official schematic/datasheet.
 5. Pick JLCPCB/LCSC parts for the EEPROM, FPC connector, diodes, MOSFET, inductor, ferrites, passives, buttons, and Qw/ST connectors.
@@ -60,4 +64,3 @@ The KiCad files currently validate as a project shell only: the schematic is a c
 8. Route as a 2-layer prototype, then run DRC against 5/5 mil minimum rules.
 9. Export schematic PDF, gerbers, drill, BOM, and placement files with `make kicad-export`.
 10. Review fabrication outputs before ordering.
-

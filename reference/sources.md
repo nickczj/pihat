@@ -21,6 +21,7 @@ Important decision: GPIO0/GPIO1 are reserved for the HAT+ ID EEPROM and required
 | `despi-c73-specification.pdf` | https://www.laskakit.cz/user/related_files/adapter_board_for_7-3_inch_e-paper_display_despi-c73.pdf | Mirror of DESPI-C73 specification PDF, used because Good Display download links can be session/referer sensitive. |
 | `gdep073e01-datasheet.pdf` | https://www.laskakit.cz/user/related_files/gdep073e01-1-0.pdf | Mirror of GDEP073E01 datasheet, used until a stable direct Good Display PDF URL is added. |
 | `reference-pages/good-display-gdep073e01-product.html` | https://www.good-display.com/product/533.html | Official GDEP073E01 product page snapshot. |
+| `reference-pages/buyepaper-gdep073e01-product-20260429.html` | https://buyepaper.com/products/gdep073e01 | Procurement snapshot for price/spec/stock ambiguity on 2026-04-29. |
 | `reference-pages/good-display-epaper-display-usage-guidelines-page.html` | https://www.good-display.com/companyfile/1620.html | Official Good Display usage-guidelines download page. |
 | `epaper-display-usage-guidelines.pdf` | https://v4.cecdn.yun300.cn/100001_1909185148/ePaper%20Display%20Usage%20Guidelines.pdf | Good Display usage guidance for e-paper handling and refresh/storage practices. |
 

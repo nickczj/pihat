@@ -31,7 +31,7 @@ For a single frame, Pimoroni Inky Impression at ~$84 is cheaper than this DIY ro
 | Power input | USB-C 5V (Pi-side) **plus** optional onboard LiPo + power-cycling for >1 week battery life | Existing user requirement from photo frame discussion |
 | Software target | Pimoroni `inky` Python library (auto-detects via I²C EEPROM) on Pi OS Bookworm | Most mature Spectra 6 software stack on Linux |
 | Mass production | JLCPCB / PCBWay 2-layer or 4-layer, standard process | Cheap small-run prototypes |
-| EDA tool | KiCad CLI 10.0.1 currently validated locally; final collaborator version still needs decision | User found local CLI at `/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli`; original plan assumed KiCad 8 or 9 |
+| EDA tool | KiCad 10.0.1 | Local CLI is `/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli`; `.kicad-version` records the standard |
 | 3D-printable enclosure | Designed in OpenSCAD or FreeCAD, sliced for Bambu P1S | User has the printer; simpler than commissioning external CAD |
 
 ---
@@ -235,7 +235,7 @@ For comparison: Pimoroni Inky Impression 7.3" is ~$84 fully assembled. Our DIY H
 - [x] Download Phase 1 PDFs/pages into `reference/` and generate `reference/SHA256SUMS`
 - [x] Read `pimoroni/inky/inky/eeprom.py` and document the byte layout in `docs/eeprom-format.md`
 - [ ] Confirm panel availability and shipping window from Good Display to Singapore
-- [ ] Decide final KiCad version for collaborators. Local CLI is 10.0.1; original plan assumed 8 or 9.
+- [x] Decide final KiCad version for collaborators: KiCad 10.0.1.
 
 ### Phase 1 — 7.3" HAT
 - [ ] Capture schematic from DESPI-C73 PDF as KiCad source. Prep notes exist in `docs/schematic-capture-notes.md` and the KiCad starter schematic.
