@@ -1,0 +1,66 @@
+(kicad_sch
+	(version 20231120)
+	(generator "codex")
+	(generator_version "0.1")
+	(uuid "00000000-0000-4000-8000-000000073001")
+	(paper "A3")
+	(title_block
+		(title "Spectra 6 HAT 7.3 - Schematic Capture Prep")
+		(date "2026-04-28")
+		(rev "prep-0")
+		(company "Open hardware")
+		(comment 1 "NOT FABRICATION READY: complete capture, ERC, layout, and DRC before ordering.")
+		(comment 2 "Phase 1 follows Pimoroni inky pins and DESPI-C73 panel-side reference.")
+	)
+	(lib_symbols)
+	(text "SOURCE STACK\n- HAT+/mechanical start: devbisme RPi_Hat_Template assets in ../shared.\n- HAT+ electrical rule: GPIO0/GPIO1 connect only to the HAT+ ID EEPROM and pull-ups.\n- inky EEPROM: separate 24LC256-class part on GPIO2/GPIO3 bus 1 at address 0x50.\n- Panel-side circuit: capture from reference/despi-c73-schematic-20220728.pdf.\n- Phase 2 13.3 inch: document only until 7.3 inch bring-up passes."
+		(exclude_from_sim no)
+		(at 20 25 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "00000000-0000-4000-8000-000000073002")
+	)
+	(text "7.3 INCH PIN MAP FOR PHASE 1\nGPIO8  -> CS\nGPIO10 -> SDI / MOSI\nGPIO11 -> SCLK\nGPIO22 -> D/C\nGPIO27 -> RESET\nGPIO17 -> BUSY\nGPIO5/GPIO6/GPIO16/GPIO24 -> rear buttons A/B/C/D\nGPIO2/GPIO3 -> Qw/ST plus inky EEPROM at 0x50"
+		(exclude_from_sim no)
+		(at 20 75 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "00000000-0000-4000-8000-000000073003")
+	)
+	(text "DESPI-C73 VALUES TO CAPTURE AND VERIFY VISUALLY\nQ1 Si1308EDL\nD2/D3/D4 MBR0530\nL1 10uH 1A\nC2 47uF 25V\nC3/C5/C6 10uF 25V\nR2 1M\nR4/R5 0R\nR10 1R\nL3/L4 L0603 120R @ 100MHz\nNets include PREVGH, PREVGL, VCOM, VPH and the 8 host pins."
+		(exclude_from_sim no)
+		(at 20 130 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "00000000-0000-4000-8000-000000073004")
+	)
+	(text "INTENTIONAL DEVIATIONS FROM REFERENCE BOARDS\n- No Waveshare demo pinout on the Pi side; route for Pimoroni inky compatibility.\n- DESPI-C73 8-pin header becomes internal HAT routing to the Pi connector.\n- Keep panel removable via 50-pin FPC; never solder the panel directly.\n- Qw/ST address 0x50 is unavailable while the inky EEPROM is populated."
+		(exclude_from_sim no)
+		(at 20 190 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "00000000-0000-4000-8000-000000073005")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)
+

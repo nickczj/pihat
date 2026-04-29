@@ -1,0 +1,17 @@
+(sym_lib_table
+	(lib
+		(name "shared")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../shared/shared.kicad_sym")
+		(options "")
+		(descr "Project shared symbols")
+	)
+	(lib
+		(name "RPi_Hat")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../shared/RPi_Hat.kicad_sym")
+		(options "")
+		(descr "Imported devbisme Raspberry Pi HAT template symbols")
+	)
+)
+

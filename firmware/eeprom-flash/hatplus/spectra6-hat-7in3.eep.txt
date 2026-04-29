@@ -1,0 +1,13 @@
+# Raspberry Pi HAT+ ID EEPROM template.
+# Build with Raspberry Pi utils/eeptools after assigning final IDs.
+#
+# This is intentionally not flashed by flash_eeprom.py. It belongs on GPIO0/GPIO1.
+
+product_uuid 00000000-0000-0000-0000-000000000000
+product_id 0x0001
+product_ver 0x0001
+vendor "open-hardware"
+product "Spectra 6 HAT 7.3"
+
+# TODO: Add final dt_blob/overlay data after the schematic GPIO map is frozen.
+

@@ -1,0 +1,25 @@
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# KiCad local/generated files
+*.kicad_prl
+*-backups/
+*.bak
+*.kicad_sch-bak
+*.kicad_pcb-bak
+fp-info-cache
+kicad/**/outputs/*
+!kicad/**/outputs/.gitkeep
+
+# Generated docs/artifacts
+docs/schematic-*.pdf
+reference/SHA256SUMS.tmp
+

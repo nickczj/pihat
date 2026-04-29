@@ -1,0 +1,10 @@
+[Unit]
+Description=Refresh Spectra 6 e-paper display
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/spectra6-pihat
+ExecStart=/usr/bin/python3 /opt/spectra6-pihat/refresh_once.py
+

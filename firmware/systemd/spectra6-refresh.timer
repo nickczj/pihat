@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Spectra 6 refresh often enough to avoid retention
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=23h
+Persistent=true
+Unit=spectra6-refresh.service
+
+[Install]
+WantedBy=timers.target
+

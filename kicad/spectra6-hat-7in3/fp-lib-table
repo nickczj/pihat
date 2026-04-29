@@ -1,0 +1,17 @@
+(fp_lib_table
+	(lib
+		(name "shared")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../shared/shared.pretty")
+		(options "")
+		(descr "Project shared footprints")
+	)
+	(lib
+		(name "RPi_Hat")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../shared/RPI_Hat.pretty")
+		(options "")
+		(descr "Imported devbisme Raspberry Pi HAT template footprint")
+	)
+)
+
